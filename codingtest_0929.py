@@ -75,9 +75,7 @@ for _ in range(n):
   print("{:.2f}".format(ans))
 
 
-
 # 문자열 반복
-
 n = int(input())
 
 for _ in range(n): # 입력받은 테스트 케이스의 수만큼 for문을 반복한다.
@@ -85,3 +83,51 @@ for _ in range(n): # 입력받은 테스트 케이스의 수만큼 for문을 반
   for p in word:
     print(p*int(cnt), end='') # end='' 문자열을 오른쪽으로 붙이며 출력
   print() # for p in word 출력문이 종료되면 줄넘김
+
+
+# 소음
+a = int(input())
+b = str(input())
+c = int(input())
+
+if b == '*':
+  result = a*c
+elif b == '+':
+  result = a+c
+print(result)
+
+
+# 시험 성적
+score = int(input())
+
+if score >= 90:
+  print('A')
+elif 80 <= score < 90:
+  print('B')
+elif 70 <= score <80:
+  print('C')
+elif 60 <= score < 70:
+  print('D')
+else :
+  print('F')
+
+
+# 세 수 --> 최소값과 최대값을 뺀 나머지를 출력 (어느 부분에서 틀린 것인지 모르겠음)
+numbers = list(map(int, input().split()))
+
+numbers.remove(min(numbers))
+numbers.remove(max(numbers))
+
+print(numbers)
+
+
+# 소인수분해
+n = int(input())
+
+if n == 1:
+  print('') 
+
+for i in range(2, n+1):
+  while n % i == 0:
+    print(i)
+    n = n/i
