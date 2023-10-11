@@ -50,7 +50,7 @@ functionD ()
 
 # 좀 더 간단하게. calc 함수를 사용해서. 연산자의 개수에 따라 경우를 나누지 않아도 되도록
 # for i in x[1:]:
-# 리스트의 길이에 따라 for문을 돌리는 횟수를 정하고 싶다면, for i ing range(len(x)-1):
+# 리스트의 길이에 따라 for문을 돌리는 횟수를 정하고 싶다면, for i in range(len(x)-1):
 
 # print("{:.2f}".format(ans))
 # 원하는 포맷에 맞게 출력하기 :  출력할 소수점 이하 자리수를 지정할 때는 .자리수f 표현으로 지정한다.
@@ -112,7 +112,7 @@ else :
   print('F')
 
 
-# 세 수 --> 최소값과 최대값을 뺀 나머지를 출력 (어느 부분에서 틀린 것인지 모르겠음)
+# 세 수 --> 최소값과 최대값을 뺀 나머지를 출력
 numbers = list(map(int, input().split()))
 
 numbers.remove(min(numbers))
