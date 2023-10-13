@@ -125,3 +125,53 @@ if p >= 0 :
   print(p)
 elif p < 0 :
   print(0)
+
+# 네 번째 점 (3009)
+dots = []
+
+for i in range(3):
+  x, y = map(int, input().split())
+  dots.append([x, y])
+
+dots1 = [coord for point in dots for coord in point]
+
+dotsX = dots1[0::2]
+dotsY = dots1[1::2]
+
+def unique (input_list):
+  count_dict = {}
+  unique_elements = []
+
+  for item in input_list:
+    if item in count_dict:
+      count_dict[item] += 1
+    else:
+      count_dict[item] = 1
+  
+  for item, count in count_dict.items():
+    if count == 1 :
+      unique_elements.append(item)
+  
+  return unique_elements
+
+x = unique(dotsX)
+y = unique(dotsY)
+
+print(x[0], y[0])
+
+# 같은 문제 더 간단한 풀이 (count 메소드)
+X = []
+Y = []
+
+for i in range(3):
+    x, y = map(int, input().split())
+    X.append(x)
+    Y.append(y)
+
+for i in range(3):
+    if X.count(X[i]) == 1:
+        x = X[i]
+    if Y.count(Y[i]) == 1:
+        y = Y[i]
+
+print(x, y)
