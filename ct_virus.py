@@ -43,16 +43,16 @@
 
 
   # 2606. 바이러스 (dfs_재귀함수 풀이)
-n = int(input()) # 컴퓨터의 수 입력받기
-v = int(input()) # 컴퓨터 사이에 연결된 선의 개수
+n = int(input()) # 컴퓨터의 수 입력받기(정점의 수)
+v = int(input()) # 컴퓨터 사이에 연결된 선의 개수(가장자리 수)
 
-graph = [[] for i in range(n+1)] # (n+1)만큼 빈 2차원 리스트를 생성(초기화), n+1을 하는 이유는 n번 컴퓨터를 n번 인덱스로 쓰기 위해
+graph = [[] for i in range(n+1)] # (n+1)만큼 빈 2차원 리스트를 생성(인접 행렬), n+1을 하는 이유는 n번 컴퓨터를 n번 인덱스로 쓰기 위해
 visited = [0]*(n+1) # (n+1) 길이의 0으로 이루어진 리스트 (0: 미방문, 1: 방문)
 
 for i in range(v): # 그래프 생성, 연결선의 개수만큼 for문을 반복해 연결된 컴퓨터 번호를 각각 a, b로 입력받기
   a, b = map(int, input().split())
   graph[a] += [b] # a에 b를 연결
-  graph[b] += [b] # b에 a를 연결 (양방향 연결, 각 노드가 next 노드와 prev 노드의 정보를 담는다. )
+  graph[b] += [a] # b에 a를 연결 (쌍방 연결)
 
 def dfs(m):
   visited[m] = 1 # 방문할 컴퓨터 번호를 m으로 입력받고, 방문 표시를 한다.
@@ -63,3 +63,17 @@ def dfs(m):
 dfs(1)
 print(sum(visited)-1) # 1번 컴퓨터를 제외하고 1번 컴퓨터와 연결된 컴퓨터 개수를 출력해야 하므로 -1 함
 # 파이썬에서 list는 함수 밖에서 선언된 뒤, 함수 안에서 변경되면 그 변경 사항이 함수 밖에도 동일하게 적용된다.
+
+# BFS로 풀이 (deque 사용)
+from collections import deque
+
+visited[1] = 1
+Q = deque([1])
+while Q:
+  c = Q.popleft() # c=현재 컴퓨터, 왼쪽에서 요소를 제거
+  for nx in graph[c]:
+    if visited[nx] == 0:
+      Q.append(nx) # 오른쪽에 요소 추가
+      visited[nx] = 1
+print(sum(visited)-1)
+
