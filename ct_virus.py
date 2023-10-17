@@ -52,10 +52,19 @@ visited = [0]*(n+1) # (n+1) 길이의 0으로 이루어진 리스트 (0: 미방�
 for i in range(v): # 그래프 생성, 연결선의 개수만큼 for문을 반복해 연결된 컴퓨터 번호를 각각 a, b로 입력받기
   a, b = map(int, input().split())
   graph[a] += [b] # a에 b를 연결
-  graph[b] += [a] # b에 a를 연결 (쌍방 연결)
+  graph[b] += [a] # b에 a를 연결 (쌍방 연결 / 1번에 2번이 연결되어 있고, 2번에 1번이 연결되어 있음을 나타내기 위함)
 
-graph[1] = [2, 5] 
-graph[2] = [1, 3, 5]
+  # a, b를 입력받을 때 input() 대신 sys.stdin.readline()으로 입력을 받는 코드도 있는데,
+  # 여러 줄의 문자열을 반복문으로 입력받을 때는 sys.stdin.readline()이 좀 더 빠르게 입력을 받을 수 있다고 합니다.
+  
+  # 쌍방 연결은 아래와 같이 .append()로도 동일한 처리가 가능
+  # graph[a].append(b)
+  # graph[b].append(a)
+
+# (참고) 입력을 모두 마친 그래프 결과는 아래와 같다.
+# 관련 개념: '인접 리스트'
+graph[1] = [2, 5] # 1번 컴퓨터는 2번, 5번 컴퓨터와 연결되어 있음
+graph[2] = [1, 3, 5] # 2번 컴퓨터는 1, 3, 5번 컴퓨터와 연결되어 있음
 graph[3] = [2]
 graph[4] = [7]
 graph[5] = [1, 2, 6]
@@ -77,9 +86,9 @@ print(sum(visited)-1) # 1번 컴퓨터를 제외하고 1번 컴퓨터와 연결�
 # BFS로 풀이 (deque 사용)
 from collections import deque
 
-visited[1] = 1
-Q = deque([1])
-while Q:
+visited[1] = 1 # 시작 컴퓨터 1을 방문으로 표시
+Q = deque([1]) # 큐에 시작점 1을 넣고 초기화
+while Q: # 큐에 노드가 남아 있는 동안 반복
   c = Q.popleft() # c=현재 컴퓨터, 왼쪽에서 요소를 꺼냄
   for nx in graph[c]:
     if visited[nx] == 0:
