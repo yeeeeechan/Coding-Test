@@ -66,3 +66,14 @@ elif aH == 24:
   aH = 0
 
 print(aH, aM)
+
+# 7567. 그릇
+plates = input()
+plate = 10
+
+for i in range(1, len(plates)):
+ if plates[i] == plates[i-1]:
+    plate += 5
+ else :
+    plate += 10
+print(plate)
