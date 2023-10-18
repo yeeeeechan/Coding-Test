@@ -77,3 +77,38 @@ for i in range(1, len(plates)):
  else :
     plate += 10
 print(plate)
+
+# 5063. TGN
+t = int(input())
+
+for i in range(t) :
+ n, y, cost = map(int, input().split())
+ 
+ yes_ad = y - cost
+
+ if n > yes_ad :
+    print("do not advertise")
+ elif n < yes_ad :
+    print("advertise") 
+ else :
+    print("does not matter")
+
+# 10102. 개표
+vc = int(input())
+v = input()
+
+A_score = 0
+B_score = 0
+
+for i in range (vc) :
+  if v[i] == "A" :
+   A_score += 1
+  else :
+   B_score += 1
+  
+if A_score > B_score :
+   print("A")
+elif A_score < B_score :
+   print("B")
+else :
+   print("Tie")
