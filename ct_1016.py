@@ -112,3 +112,34 @@ elif A_score < B_score :
    print("B")
 else :
    print("Tie")
+
+# 10886. 0 = not cute / 1 = cute
+p = int(input())
+
+s1 = 0
+s2 = 0
+
+for i in range(p) :
+  vote = int(input())
+  if vote == 1 :
+    s1 += 1
+  else :
+    s2 += 1
+
+if s1 > s2 :
+  print("Junhee is cute!")
+else :
+  print("Junhee is not cute!")
+
+# 10988. 팰린드롬인지 확인하기
+# 문자열[시작:끝:규칙]의 형식으로 문자열을 슬라이싱할 수 있다.
+# 규칙) 디폴트값은 1. 문자열을 앞에서부터 하나씩 슬라이싱하여 새로운 문자열 생성. 여기에 -1을 넣으면 역순으로 문자열을 잘라 새로운 문자열을 생성 
+word = input()
+
+if word[::1] == word[::-1]:
+  print(1)
+else:
+  print(0)
+
+
+# 2644. 촌수 계산 (DFS)
