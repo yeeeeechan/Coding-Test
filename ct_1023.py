@@ -61,3 +61,21 @@ for _ in range(case):
         else:
             score = 0
     print(sum_score)
+
+# 9506. 약수들의 합
+while True:
+    n = int(input())
+    if n == -1:
+        break
+    else:
+        result = []
+        total = 0
+        for i in range(1, n//2+1):
+            if n % i == 0:
+                result.append(i)
+                total += i
+        if n == total:
+            print(n, "=", end=" ")
+            print(*result, sep=" + ")
+        else:
+            print(n, "is NOT perfect.")
