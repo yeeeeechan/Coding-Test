@@ -79,3 +79,33 @@ while True:
             print(*result, sep=" + ")
         else:
             print(n, "is NOT perfect.")
+
+# 10162. 전자레인지
+t = int(input())
+
+if t % 10 != 0:
+    print('-1')
+else:
+    a, b, c = 0, 0, 0
+
+    a = t // 300
+    b = (t % 300) // 60
+    c = (t % 60) // 10
+    print(a, b, c)
+
+# 10103. 주사위 게임
+round = int(input())
+p1, p2 = 100, 100
+
+for i in range(round):
+    a, b = map(int, input().split())
+
+    if a == b:
+        continue
+    elif a > b:
+        p2 -= a
+    elif a < b:
+        p1 -= b
+
+print(p1)
+print(p2)
