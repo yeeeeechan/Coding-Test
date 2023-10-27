@@ -109,3 +109,47 @@ for i in range(round):
 
 print(p1)
 print(p2)
+
+# 10214. Baseball
+c = int(input())
+
+for i in range(c):
+    y_score = 0
+    k_score = 0
+
+    for _ in range(9):
+        y, k = map(int, input().split())
+        y_score += y
+        k_score += k
+
+    if y_score > k_score:
+        print("Yonsei")
+    elif y_score < k_score:
+        print("Korea")
+    else:
+        print("Draw")
+
+# 11557. Yangjojang of The Year
+# sch_name, max라는 변수를 초기화해 선언해 주고,
+# 두 번째 for문이 반복될 때마다 drink를 정수형으로 저장하여 max보다 클 때 max에 할당하는 식으로 값을 비교함
+c = int(input())
+
+for i in range(c):
+    sch_name = ''
+    max = 0
+    s = int(input())
+
+    for _ in range(s):
+        sch, drink = input().split()
+        drink = int(drink)
+        if drink > max:
+            sch_name = sch
+            max = drink
+    print(sch_name)
+
+# 10757. 큰 수 A+B
+# import sys
+# input = sys.stdin.readline # 입력받는 양이 많을 때 속도를 단축할 수 있다! (이 문제에서는 별반 차이 없음)
+
+a, b = map(int, input().split())
+print(a+b)
