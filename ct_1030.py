@@ -53,3 +53,8 @@ while n == 0:
         n = n / 2
     else:
         n = n-1
+
+# 10828. 스택
+class Stack:
+    def __init__(self, data):
+        self.top = None
