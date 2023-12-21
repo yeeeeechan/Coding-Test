@@ -17,8 +17,10 @@ for i in m_list:
             isExist = 1
             print(isExist)
             break
+
         elif i > n_list[mid]:  # 요소가 중간값보다 크면
             left = mid + 1
+            
         else:
             right = mid - 1
     if isExist == 0:
